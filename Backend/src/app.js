@@ -2,9 +2,13 @@ const express = require("express");
 const app = express();
 const postModel = require("./db/model");
 const upload = require("./storage/multer");
-
+const cors = require("cors");
 const fileUpload = require("./storage/storage.image");
+
+
+
 app.use(express.json());
+app.use(cors());//This will tell the browser to allow any server to access the resources.
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/posts",async (req,res)=>{
